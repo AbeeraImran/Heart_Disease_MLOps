@@ -149,3 +149,11 @@ joblib.dump(lr_model, "models/logistic_regression_model.pkl")
 joblib.dump(rf_model, "models/random_forest_model.pkl")
 
 print("\nModels saved successfully.")
+
+
+
+from retrain_logic import evaluate_and_promote
+
+# After all training and registration is done
+if __name__ == "__main__":
+    evaluate_and_promote()

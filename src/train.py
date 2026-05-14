@@ -13,7 +13,7 @@ mlflow.set_tracking_uri("file:../mlruns")
 mlflow.set_experiment("Heart Disease Prediction")
 
 # Load dataset
-df = pd.read_csv("../data/heart.csv")
+df = pd.read_csv("data/heart.csv")
 
 # Features and target
 X = df.drop("target", axis=1)

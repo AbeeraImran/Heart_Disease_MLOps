@@ -136,9 +136,9 @@ print(classification_report(y_test, rf_predictions))
 
 
 # Save models
-joblib.dump(lr_model, "../models/logistic_regression_model.pkl")
+joblib.dump(lr_model, "models/logistic_regression_model.pkl")
 
-joblib.dump(rf_model, "../models/random_forest_model.pkl")
+joblib.dump(rf_model, "models/random_forest_model.pkl")
 
 print("\nModels saved successfully.")
 

@@ -127,6 +127,14 @@ with mlflow.start_run(run_name="Random Forest"):
 
     print("Random Forest Accuracy:", rf_accuracy)
 
+    run = mlflow.active_run()
+    model_name = "HeartDiseaseModel"
+
+    mlflow.register_model(
+        model_uri=f"runs:/{run.info.run_id}/random_forest_model",
+        name=model_name
+    )
+
 
 print("\nRandom Forest Confusion Matrix:")
 print(confusion_matrix(y_test, rf_predictions))
@@ -141,14 +149,3 @@ joblib.dump(lr_model, "models/logistic_regression_model.pkl")
 joblib.dump(rf_model, "models/random_forest_model.pkl")
 
 print("\nModels saved successfully.")
-
-
-import mlflow
-
-run = mlflow.active_run()
-model_name = "HeartDiseaseModel"
-
-mlflow.register_model(
-    model_uri=f"runs:/{run.info.run_id}/random_forest_model",
-    name=model_name
-)

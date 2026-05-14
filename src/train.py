@@ -145,11 +145,10 @@ print("\nModels saved successfully.")
 
 import mlflow
 
+run = mlflow.active_run()
 model_name = "HeartDiseaseModel"
-run_id = "550311706064790543"
 
-# Register the model
-result = mlflow.register_model(
-    model_uri=f"runs:/{run_id}/random_forest_model",
+mlflow.register_model(
+    model_uri=f"runs:/{run.info.run_id}/random_forest_model",
     name=model_name
 )
